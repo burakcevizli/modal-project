@@ -1,7 +1,7 @@
 <template>
   <h1>{{ title }}</h1>
   <p>Welcome ...</p>
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <MyModal :header="header" :text="text" theme="sale" @close="openModal">
       <template v-slot:links>
         <a href="#">sign up now</a>
@@ -10,7 +10,7 @@
       <h1>Ninja GateAWAY</h1>
       <P>gRAB YOR NINJAAAAAA</P>
     </MyModal>
-  </div>
+  </teleport>
   <div v-if="showModalTwo">
     <MyModal @close="openModalTwo">
       <h1>Sign up to newletter</h1>
