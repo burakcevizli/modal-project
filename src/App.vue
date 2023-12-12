@@ -2,16 +2,23 @@
   <h1>{{ title }}</h1>
   <p>Welcome ...</p>
   <div v-if="showModal">
-    <MyModal :header="header" :text="text" theme="sale" @close="openModal" >
+    <MyModal :header="header" :text="text" theme="sale" @close="openModal">
       <template v-slot:links>
         <a href="#">sign up now</a>
         <a href="#">More Info</a>
       </template>
       <h1>Ninja GateAWAY</h1>
       <P>gRAB YOR NINJAAAAAA</P>
-    </MyModal> 
+    </MyModal>
+  </div>
+  <div v-if="showModalTwo">
+    <MyModal @close="openModalTwo">
+      <h1>Sign up to newletter</h1>
+      <P>gRAB YOR NINJAAAAAA22222222</P>
+    </MyModal>
   </div>
   <button @click="openModal">Open Modal</button>
+  <button @click="openModalTwo">Open ModalTwo</button>
 </template>
 
 <script>
@@ -23,9 +30,8 @@ export default {
   data() {
     return {
       title: "My First Vue App",
-      header: "Sign up for the Giveaway!",
-      text: "Grab your ninja swag for half price",
       showModal: false,
+      showModalTwo: false,
     };
   },
   methods: {
@@ -36,6 +42,9 @@ export default {
     },
     openModal() {
       this.showModal = !this.showModal;
+    },
+    openModalTwo() {
+      this.showModalTwo = !this.showModalTwo;
     },
   },
 };
